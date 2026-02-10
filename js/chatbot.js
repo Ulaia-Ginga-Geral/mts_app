@@ -1,4 +1,4 @@
-// Chatbot MTS - Assistente Virtual
+// Chatbot MTS - Assistente Virtual (Desktop only)
 class MTSChatbot {
   constructor() {
     this.isOpen = false;
@@ -13,7 +13,16 @@ class MTSChatbot {
     this.init();
   }
 
+  // Check if device is desktop (screen width >= 769px)
+  isDesktop() {
+    return window.innerWidth >= 769;
+  }
+
   init() {
+    // Only initialize on desktop devices
+    if (!this.isDesktop()) {
+      return;
+    }
     this.setupElements();
     this.bindEvents();
     this.loadConversation();
@@ -498,9 +507,12 @@ class MTSChatbot {
   }
 }
 
-// Inicializar chatbot quando o DOM estiver pronto
+// Inicializar chatbot quando o DOM estiver pronto (desktop only)
 document.addEventListener("DOMContentLoaded", () => {
-  window.mtsChatbot = new MTSChatbot();
+  // Only initialize chatbot on desktop devices
+  if (window.innerWidth >= 769) {
+    window.mtsChatbot = new MTSChatbot();
+  }
 });
 
 // Adicionar estilos CSS para o chatbot

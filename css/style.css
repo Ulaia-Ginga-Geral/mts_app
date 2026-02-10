@@ -1005,12 +1005,20 @@ section {
     opacity: 0.8;
 }
 
-/* Chatbot */
+/* Chatbot - Desktop only */
 .chatbot-container {
     position: fixed;
     bottom: 30px;
     right: 30px;
     z-index: 1000;
+    display: none;
+}
+
+/* Show chatbot only on desktop (screens larger than 768px) */
+@media (min-width: 769px) {
+    .chatbot-container {
+        display: block;
+    }
 }
 
 .chatbot-toggle {
