@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servidores VPS Linux - MTS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/3d-elements.css" />
+    <style>
+      .vps-hero {
+        background: var(--gradient-primary);
+        padding: 150px 0 80px;
+        color: var(--light-color);
+        text-align: center;
+      }
+
+      .vps-hero h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .vps-hero p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .calculator-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      }
+
+      .calculator-container {
+        background: var(--light-color);
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+      }
+
+      .calculator-header {
+        background: var(--gradient-primary);
+        color: var(--light-color);
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .calculator-header h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .calculator-header p {
+        opacity: 0.9;
+        margin: 0;
+      }
+
+      .calculator-body {
+        padding: 2rem;
+      }
+
+      .config-section {
+        margin-bottom: 2rem;
+      }
+
+      .config-section h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--dark-color);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .config-section h4 i {
+        color: var(--primary-color);
+      }
+
+      .option-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+      }
+
+      .option-btn {
+        padding: 1rem;
+        border: 2px solid #e9ecef;
+        border-radius: var(--border-radius-md);
+        background: var(--light-color);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        text-align: center;
+      }
+
+      .option-btn:hover {
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+
+      .option-btn.active {
+        border-color: var(--primary-color);
+        background: rgba(4, 104, 175, 0.1);
+      }
+
+      .option-btn .value {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--dark-color);
+        display: block;
+      }
+
+      .option-btn .label {
+        font-size: 0.8rem;
+        color: var(--gray-color);
+      }
+
+      .os-section .option-group {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .os-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 1rem;
+      }
+
+      .os-btn i {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+      }
+
+      .os-btn .os-info {
+        text-align: left;
+      }
+
+      .os-btn .os-name {
+        font-weight: 600;
+        color: var(--dark-color);
+        display: block;
+      }
+
+      .os-btn .os-version {
+        font-size: 0.8rem;
+        color: var(--gray-color);
+      }
+
+      .summary-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: var(--border-radius-md);
+        padding: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .summary-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+      }
+
+      .summary-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .summary-item:last-child {
+        border-bottom: none;
+      }
+
+      .summary-item .label {
+        color: var(--gray-color);
+      }
+
+      .summary-item .value {
+        font-weight: 600;
+        color: var(--dark-color);
+      }
+
+      .price-section {
+        background: var(--gradient-primary);
+        color: var(--light-color);
+        border-radius: var(--border-radius-md);
+        padding: 2rem;
+        margin-top: 2rem;
+        text-align: center;
+      }
+
+      .billing-toggle {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .billing-btn {
+        padding: 0.5rem 1.5rem;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: var(--border-radius-md);
+        background: transparent;
+        color: var(--light-color);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+      }
+
+      .billing-btn.active {
+        background: var(--light-color);
+        color: var(--primary-color);
+        border-color: var(--light-color);
+      }
+
+      .price-display {
+        margin-bottom: 1.5rem;
+      }
+
+      .price-amount {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .price-period {
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+
+      .price-savings {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius-sm);
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .btn-order {
+        background: var(--light-color);
+        color: var(--primary-color);
+        border: none;
+        padding: 1rem 3rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: var(--border-radius-md);
+        cursor: pointer;
+        transition: all var(--transition-normal);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .btn-order:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .features-section {
+        padding: 80px 0;
+        background: var(--light-color);
+      }
+
+      .feature-card {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: var(--border-radius-lg);
+        padding: 2rem;
+        text-align: center;
+        height: 100%;
+        transition: all var(--transition-normal);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .feature-icon {
+        width: 70px;
+        height: 70px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 1.8rem;
+        color: var(--light-color);
+      }
+
+      .feature-card h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+      }
+
+      .feature-card p {
+        color: var(--gray-color);
+        margin: 0;
+      }
+
+      .preconfigured-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      }
+
+      .vps-card {
+        background: var(--light-color);
+        border-radius: var(--border-radius-lg);
+        padding: 2rem;
+        text-align: center;
+        box-shadow: var(--shadow-md);
+        transition: all var(--transition-normal);
+        height: 100%;
+        border: 2px solid transparent;
+      }
+
+      .vps-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--primary-color);
+      }
+
+      .vps-card h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+      }
+
+      .vps-specs {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+      }
+
+      .vps-specs li {
+        padding: 0.5rem 0;
+        color: var(--gray-color);
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .vps-specs li:last-child {
+        border-bottom: none;
+      }
+
+      .vps-specs i {
+        color: var(--success-color);
+        margin-right: 8px;
+      }
+
+      .vps-price {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .vps-price small {
+        font-size: 0.9rem;
+        color: var(--gray-color);
+        font-weight: 400;
+      }
+
+      @media (max-width: 768px) {
+        .vps-hero h1 {
+          font-size: 2rem;
+        }
+
+        .option-group {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .price-amount {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <div class="logo-3d">
+            <span class="logo-text">MTS</span>
+            <div class="logo-glow"></div>
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="hospedagem.html">Hospedagem</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="vps.html">Servidores VPS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#services">Serviços</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="vps-hero">
+      <div class="container">
+        <h1>Servidores VPS Linux</h1>
+        <p>
+          Servidores virtuais privados com recursos dedicados, performance
+          garantida e controle total. Configure o seu VPS de acordo com suas
+          necessidades.
+        </p>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="calculator-container">
+              <div class="calculator-header">
+                <h2><i class="fas fa-calculator me-2"></i>Calculadora de VPS</h2>
+                <p>Monte seu servidor VPS personalizado e veja o preço em tempo real</p>
+              </div>
+              <div class="calculator-body">
+                <!-- CPU Selection -->
+                <div class="config-section">
+                  <h4><i class="fas fa-microchip"></i> Processador (vCPU)</h4>
+                  <div class="option-group" id="cpuOptions">
+                    <button class="option-btn active" data-value="1" data-price="3000">
+                      <span class="value">1</span>
+                      <span class="label">vCPU</span>
+                    </button>
+                    <button class="option-btn" data-value="2" data-price="6000">
+                      <span class="value">2</span>
+                      <span class="label">vCPUs</span>
+                    </button>
+                    <button class="option-btn" data-value="4" data-price="12000">
+                      <span class="value">4</span>
+                      <span class="label">vCPUs</span>
+                    </button>
+                    <button class="option-btn" data-value="8" data-price="24000">
+                      <span class="value">8</span>
+                      <span class="label">vCPUs</span>
+                    </button>
+                    <button class="option-btn" data-value="16" data-price="48000">
+                      <span class="value">16</span>
+                      <span class="label">vCPUs</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- RAM Selection -->
+                <div class="config-section">
+                  <h4><i class="fas fa-memory"></i> Memória RAM</h4>
+                  <div class="option-group" id="ramOptions">
+                    <button class="option-btn active" data-value="1" data-price="2000">
+                      <span class="value">1</span>
+                      <span class="label">GB RAM</span>
+                    </button>
+                    <button class="option-btn" data-value="2" data-price="4000">
+                      <span class="value">2</span>
+                      <span class="label">GB RAM</span>
+                    </button>
+                    <button class="option-btn" data-value="4" data-price="8000">
+                      <span class="value">4</span>
+                      <span class="label">GB RAM</span>
+                    </button>
+                    <button class="option-btn" data-value="8" data-price="16000">
+                      <span class="value">8</span>
+                      <span class="label">GB RAM</span>
+                    </button>
+                    <button class="option-btn" data-value="16" data-price="32000">
+                      <span class="value">16</span>
+                      <span class="label">GB RAM</span>
+                    </button>
+                    <button class="option-btn" data-value="32" data-price="64000">
+                      <span class="value">32</span>
+                      <span class="label">GB RAM</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Storage Selection -->
+                <div class="config-section">
+                  <h4><i class="fas fa-hdd"></i> Armazenamento SSD</h4>
+                  <div class="option-group" id="storageOptions">
+                    <button class="option-btn active" data-value="20" data-price="1500">
+                      <span class="value">20</span>
+                      <span class="label">GB SSD</span>
+                    </button>
+                    <button class="option-btn" data-value="40" data-price="3000">
+                      <span class="value">40</span>
+                      <span class="label">GB SSD</span>
+                    </button>
+                    <button class="option-btn" data-value="80" data-price="6000">
+                      <span class="value">80</span>
+                      <span class="label">GB SSD</span>
+                    </button>
+                    <button class="option-btn" data-value="160" data-price="12000">
+                      <span class="value">160</span>
+                      <span class="label">GB SSD</span>
+                    </button>
+                    <button class="option-btn" data-value="320" data-price="24000">
+                      <span class="value">320</span>
+                      <span class="label">GB SSD</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Bandwidth Selection -->
+                <div class="config-section">
+                  <h4><i class="fas fa-network-wired"></i> Tráfego/Banda</h4>
+                  <div class="option-group" id="bandwidthOptions">
+                    <button class="option-btn active" data-value="1" data-price="2000">
+                      <span class="value">1</span>
+                      <span class="label">TB/mês</span>
+                    </button>
+                    <button class="option-btn" data-value="2" data-price="4000">
+                      <span class="value">2</span>
+                      <span class="label">TB/mês</span>
+                    </button>
+                    <button class="option-btn" data-value="5" data-price="8000">
+                      <span class="value">5</span>
+                      <span class="label">TB/mês</span>
+                    </button>
+                    <button class="option-btn" data-value="10" data-price="15000">
+                      <span class="value">10</span>
+                      <span class="label">TB/mês</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- OS Selection -->
+                <div class="config-section os-section">
+                  <h4><i class="fab fa-linux"></i> Sistema Operacional</h4>
+                  <div class="option-group" id="osOptions">
+                    <button class="option-btn os-btn active" data-value="ubuntu-22" data-price="0">
+                      <i class="fab fa-ubuntu"></i>
+                      <div class="os-info">
+                        <span class="os-name">Ubuntu</span>
+                        <span class="os-version">22.04 LTS</span>
+                      </div>
+                    </button>
+                    <button class="option-btn os-btn" data-value="ubuntu-20" data-price="0">
+                      <i class="fab fa-ubuntu"></i>
+                      <div class="os-info">
+                        <span class="os-name">Ubuntu</span>
+                        <span class="os-version">20.04 LTS</span>
+                      </div>
+                    </button>
+                    <button class="option-btn os-btn" data-value="centos-9" data-price="0">
+                      <i class="fab fa-centos"></i>
+                      <div class="os-info">
+                        <span class="os-name">CentOS</span>
+                        <span class="os-version">Stream 9</span>
+                      </div>
+                    </button>
+                    <button class="option-btn os-btn" data-value="debian-12" data-price="0">
+                      <i class="fab fa-linux"></i>
+                      <div class="os-info">
+                        <span class="os-name">Debian</span>
+                        <span class="os-version">12 (Bookworm)</span>
+                      </div>
+                    </button>
+                    <button class="option-btn os-btn" data-value="almalinux-9" data-price="0">
+                      <i class="fas fa-server"></i>
+                      <div class="os-info">
+                        <span class="os-name">AlmaLinux</span>
+                        <span class="os-version">9</span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Summary -->
+                <div class="summary-section">
+                  <h4 class="summary-title">Resumo da Configuração</h4>
+                  <div class="summary-item">
+                    <span class="label">Processador:</span>
+                    <span class="value" id="summaryCpu">1 vCPU</span>
+                  </div>
+                  <div class="summary-item">
+                    <span class="label">Memória RAM:</span>
+                    <span class="value" id="summaryRam">1 GB</span>
+                  </div>
+                  <div class="summary-item">
+                    <span class="label">Armazenamento:</span>
+                    <span class="value" id="summaryStorage">20 GB SSD</span>
+                  </div>
+                  <div class="summary-item">
+                    <span class="label">Banda:</span>
+                    <span class="value" id="summaryBandwidth">1 TB/mês</span>
+                  </div>
+                  <div class="summary-item">
+                    <span class="label">Sistema Operacional:</span>
+                    <span class="value" id="summaryOs">Ubuntu 22.04 LTS</span>
+                  </div>
+                </div>
+
+                <!-- Price Section -->
+                <div class="price-section">
+                  <div class="billing-toggle">
+                 <!--   <button class="billing-btn active" data-period="monthly">
+                      Mensal
+                    </button>  -->
+                    <button class="billing-btn" data-period="yearly">
+                      Anual <small>(20% OFF)</small>
+                    </button>
+                  </div>
+                  <div class="price-display">
+                    <div class="price-amount" id="totalPrice">8.500 <small>Kz</small></div>
+                    <div class="price-period" id="pricePeriod">/mês</div>
+                  </div>
+                  <div class="price-savings" id="savingsText" style="display: none;">
+                    <i class="fas fa-piggy-bank me-2"></i>Economize 20.400 Kz por ano!
+                  </div>
+                  <button
+                    href="#"
+                    id="orderBtn"
+                    target="_blank"
+                    class="btn btn-product btn-product-outline whatsapp-order"
+                  >
+                    <i class="fab fa-whatsapp"></i>
+                    Encomendar VPS
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <h2 class="section-title">
+            Por que escolher nossos <span class="text-primary">VPS</span>?
+          </h2>
+          <p class="section-subtitle">
+            Recursos premium incluídos em todos os planos VPS
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <h3>SSD NVMe</h3>
+              <p>
+                Armazenamento SSD NVMe de alta velocidade para máxima
+                performance e baixa latência.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>Segurança</h3>
+              <p>
+                Proteção DDoS, firewall e backups automáticos para manter seus
+                dados seguros.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h3>IP Dedicado</h3>
+              <p>
+                Endereço IP dedicado incluído em todos os planos VPS, sem custo
+                adicional.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-headset"></i>
+              </div>
+              <h3>Suporte 24/7</h3>
+              <p>
+                Equipe técnica especializada disponível 24 horas por dia, 7
+                dias por semana.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-terminal"></i>
+              </div>
+              <h3>Acesso Root</h3>
+              <p>
+                Controle total do servidor com acesso root SSH completo e
+                liberdade total.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-sync-alt"></i>
+              </div>
+              <h3>Backup Automático</h3>
+              <p>
+                Backups automáticos diários com retenção de 7 dias para
+                recuperação rápida.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>Monitoramento</h3>
+              <p>
+                Monitoramento 24/7 de recursos e uptime com alertas em tempo
+                real.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-expand-arrows-alt"></i>
+              </div>
+              <h3>Escalabilidade</h3>
+              <p>
+                Escale seus recursos a qualquer momento conforme suas
+                necessidades crescem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preconfigured VPS Section -->
+    <section class="preconfigured-section">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <h2 class="section-title">
+            Planos Pré-configurados 
+          </h2>
+          <p class="section-subtitle">
+            Configurações populares prontas para uso imediato
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="vps-card">
+              <h3>VPS Starter</h3>
+              <ul class="vps-specs">
+                <li><i class="fas fa-check"></i> 1 vCPU</li>
+                <li><i class="fas fa-check"></i> 1 GB RAM</li>
+                <li><i class="fas fa-check"></i> 20 GB SSD</li>
+                <li><i class="fas fa-check"></i> 1 TB Banda</li>
+                <li><i class="fas fa-check"></i> IP Dedicado</li>
+              </ul>
+              <div class="vps-price">
+                8.500 <small>Kz/mês</small>
+              </div>
+              <a
+                href="https://wa.me/244923898014?text=Olá! Tenho interesse no VPS Starter (1 vCPU, 1GB RAM, 20GB SSD)."
+                target="_blank"
+                class="btn btn-primary w-100"
+              >
+                <i class="fab fa-whatsapp me-2"></i>Contratar
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="vps-card">
+              <h3>VPS Basic</h3>
+              <ul class="vps-specs">
+                <li><i class="fas fa-check"></i> 2 vCPUs</li>
+                <li><i class="fas fa-check"></i> 2 GB RAM</li>
+                <li><i class="fas fa-check"></i> 40 GB SSD</li>
+                <li><i class="fas fa-check"></i> 2 TB Banda</li>
+                <li><i class="fas fa-check"></i> IP Dedicado</li>
+              </ul>
+              <div class="vps-price">
+                17.000 <small>Kz/mês</small>
+              </div>
+              <a
+                href="https://wa.me/244923898014?text=Olá! Tenho interesse no VPS Basic (2 vCPUs, 2GB RAM, 40GB SSD)."
+                target="_blank"
+                class="btn btn-primary w-100"
+              >
+                <i class="fab fa-whatsapp me-2"></i>Contratar
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="vps-card">
+              <h3>VPS Professional</h3>
+              <ul class="vps-specs">
+                <li><i class="fas fa-check"></i> 4 vCPUs</li>
+                <li><i class="fas fa-check"></i> 4 GB RAM</li>
+                <li><i class="fas fa-check"></i> 80 GB SSD</li>
+                <li><i class="fas fa-check"></i> 5 TB Banda</li>
+                <li><i class="fas fa-check"></i> IP Dedicado</li>
+              </ul>
+              <div class="vps-price">
+                34.000 <small>Kz/mês</small>
+              </div>
+              <a
+                href="https://wa.me/244923898014?text=Olá! Tenho interesse no VPS Professional (4 vCPUs, 4GB RAM, 80GB SSD)."
+                target="_blank"
+                class="btn btn-primary w-100"
+              >
+                <i class="fab fa-whatsapp me-2"></i>Contratar
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="vps-card">
+              <h3>VPS Enterprise</h3>
+              <ul class="vps-specs">
+                <li><i class="fas fa-check"></i> 8 vCPUs</li>
+                <li><i class="fas fa-check"></i> 8 GB RAM</li>
+                <li><i class="fas fa-check"></i> 160 GB SSD</li>
+                <li><i class="fas fa-check"></i> 10 TB Banda</li>
+                <li><i class="fas fa-check"></i> IP Dedicado</li>
+              </ul>
+              <div class="vps-price">
+                68.000 <small>Kz/mês</small>
+              </div>
+              <a
+                href="https://wa.me/244923898014?text=Olá! Tenho interesse no VPS Enterprise (8 vCPUs, 8GB RAM, 160GB SSD)."
+                target="_blank"
+                class="btn btn-primary w-100"
+              >
+                <i class="fab fa-whatsapp me-2"></i>Contratar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="footer-brand">
+              <h3>MTS</h3>
+              <p>Soluções em Tecnologia e Informática</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h4>Links Rápidos</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Início</a></li>
+              <li><a href="hospedagem.html">Hospedagem</a></li>
+              <li><a href="vps.html">Servidores VPS</a></li>
+              <li><a href="index.html#services">Serviços</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h4>Contato</h4>
+            <div class="footer-contact">
+              <p><i class="fas fa-phone me-2"></i> +244 923 898 014</p>
+              <p><i class="fas fa-envelope me-2"></i> comercial@mts.it.ao</p>
+              <p>
+                <i class="fas fa-map-marker-alt me-2"></i> Cassequel do Lorena,
+                Angola
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 MTS - Todos os direitos reservados</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // VPS Calculator Logic
+      const config = {
+        cpu: { value: 1, price: 3000 },
+        ram: { value: 1, price: 2000 },
+        storage: { value: 20, price: 1500 },
+        bandwidth: { value: 1, price: 2000 },
+        os: { value: "ubuntu-22", price: 0, name: "Ubuntu 22.04 LTS" },
+        billing: "monthly",
+      };
+
+      const osNames = {
+        "ubuntu-22": "Ubuntu 22.04 LTS",
+        "ubuntu-20": "Ubuntu 20.04 LTS",
+        "centos-9": "CentOS Stream 9",
+        "debian-12": "Debian 12 (Bookworm)",
+        "almalinux-9": "AlmaLinux 9",
+      };
+
+      // Setup option buttons
+      function setupOptionButtons(groupId, configKey) {
+        const buttons = document.querySelectorAll(`#${groupId} .option-btn`);
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            buttons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            config[configKey].value = btn.dataset.value;
+            config[configKey].price = parseInt(btn.dataset.price);
+            if (configKey === "os") {
+              config[configKey].name = osNames[btn.dataset.value];
+            }
+            updateCalculator();
+          });
+        });
+      }
+
+      setupOptionButtons("cpuOptions", "cpu");
+      setupOptionButtons("ramOptions", "ram");
+      setupOptionButtons("storageOptions", "storage");
+      setupOptionButtons("bandwidthOptions", "bandwidth");
+      setupOptionButtons("osOptions", "os");
+
+      // Billing toggle
+      const billingBtns = document.querySelectorAll(".billing-btn");
+      billingBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          billingBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          config.billing = btn.dataset.period;
+          updateCalculator();
+        });
+      });
+
+      function updateCalculator() {
+        // Update summary
+        document.getElementById("summaryCpu").textContent =
+          config.cpu.value + " vCPU" + (config.cpu.value > 1 ? "s" : "");
+        document.getElementById("summaryRam").textContent =
+          config.ram.value + " GB";
+        document.getElementById("summaryStorage").textContent =
+          config.storage.value + " GB SSD";
+        document.getElementById("summaryBandwidth").textContent =
+          config.bandwidth.value + " TB/mês";
+        document.getElementById("summaryOs").textContent = config.os.name;
+
+        // Calculate price
+        const basePrice =
+          config.cpu.price +
+          config.ram.price +
+          config.storage.price +
+          config.bandwidth.price +
+          config.os.price;
+
+        let displayPrice = basePrice;
+        let periodText = "/mês";
+        let savingsText = document.getElementById("savingsText");
+
+        if (config.billing === "yearly") {
+          displayPrice = basePrice * 12 * 0.8; // 20% discount
+          periodText = "/ano";
+          savingsText.style.display = "inline-block";
+          const savings = basePrice * 12 * 0.2;
+          savingsText.innerHTML = `<i class="fas fa-piggy-bank me-2"></i>Economize ${formatPrice(
+            savings
+          )} por ano!`;
+        } else {
+          savingsText.style.display = "none";
+        }
+
+        document.getElementById("totalPrice").innerHTML = `${formatPrice(
+          displayPrice
+        )} <small>Kz</small>`;
+        document.getElementById("pricePeriod").textContent = periodText;
+
+        // Update order button link
+        const whatsappMessage = `Olá! Gostaria de encomendar um VPS Linux com as seguintes especificações:
+- Processador: ${config.cpu.value} vCPU(s)
+- RAM: ${config.ram.value} GB
+- Armazenamento: ${config.storage.value} GB SSD
+- Banda: ${config.bandwidth.value} TB/mês
+- Sistema Operacional: ${config.os.name}
+- Pagamento: ${config.billing === "yearly" ? "Anual" : "Mensal"}
+- Preço: ${formatPrice(displayPrice)} Kz${periodText}`;
+
+        document.getElementById(
+          "orderBtn"
+        ).href = `https://wa.me/244923898014?text=${encodeURIComponent(
+          whatsappMessage
+        )}`;
+      }
+
+      function formatPrice(price) {
+        return price.toLocaleString("pt-AO");
+      }
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Initialize
+      updateCalculator();
+    </script>
+  </body>
+</html>

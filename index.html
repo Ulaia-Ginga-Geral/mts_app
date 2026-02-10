@@ -53,8 +53,16 @@
             <li class="nav-item">
               <a class="nav-link active" href="#home">Início</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#services">Serviços</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                Serviços
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="hospedagem.html"><i class="fas fa-server me-2"></i>Hospedagem Web</a></li>
+                <li><a class="dropdown-item" href="vps.html"><i class="fas fa-cloud me-2"></i>Servidores VPS</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#services">Todos os Serviços</a></li>
+              </ul>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#products">Produtos</a>
@@ -77,7 +85,7 @@
           <div class="row align-items-center justify-content-center">
             <div class="col-lg-5 hero-text text-center">
               <h1 class="hero-title animate-float mb-4">
-                <span class="text-gradient">Soluções</span>
+                <span class="text-primary">Soluções</span>
                 <span class="text-tech">Tecnológicas</span>
                 <br />de <span class="text-primary">Excelência</span>
               </h1>
@@ -87,12 +95,15 @@
                 para impulsionar o seu negócio.
               </p>
               <div class="hero-buttons justify-content-center mb-5">
-                <button class="btn btn-primary btn-lg me-3 animate-bounce">
-                  <i class="fas fa-rocket me-2"></i>Nossos Serviços
-                </button>
-                <button class="btn btn-outline-light btn-lg animate-pulse">
+                <a href="hospedagem.html" class="btn btn-primary btn-lg me-3 animate-bounce">
+                  <i class="fas fa-server me-2"></i>Hospedagem Web
+                </a>
+                <a href="vps.html" class="btn btn-outline-light btn-lg animate-pulse me-3">
+                  <i class="fas fa-cloud me-2"></i>Servidores VPS
+                </a>
+                <a href="https://wa.me/244923898014" target="_blank" class="btn btn-success btn-lg animate-pulse">
                   <i class="fab fa-whatsapp me-2"></i>Fale Conosco
-                </button>
+                </a>
               </div>
               <div
                 class="hero-stats d-flex justify-content-center flex-wrap gap-4"
@@ -174,6 +185,9 @@
                 <li><i class="fas fa-check"></i> SSL Gratuito</li>
                 <li><i class="fas fa-check"></i> Backup Diário</li>
               </ul>
+              <a href="hospedagem.html" class="btn btn-primary w-100 mt-3">
+                <i class="fas fa-tags me-2"></i>Ver Planos e Preços
+              </a>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4">
@@ -198,16 +212,19 @@
               <div class="service-icon">
                 <i class="fas fa-network-wired"></i>
               </div>
-              <h3>Servidores</h3>
+              <h3>Servidores VPS</h3>
               <p>
-                Montagem e configuração de servidores personalizados para sua
-                empresa.
+                Servidores Linux virtuais privados com recursos dedicados e
+                controle total via SSH.
               </p>
               <ul class="service-features">
-                <li><i class="fas fa-check"></i> Infraestrutura</li>
-                <li><i class="fas fa-check"></i> Configuração</li>
-                <li><i class="fas fa-check"></i> Monitoramento</li>
+                <li><i class="fas fa-check"></i> Recursos Dedicados</li>
+                <li><i class="fas fa-check"></i> Acesso Root</li>
+                <li><i class="fas fa-check"></i> IP Dedicado</li>
               </ul>
+              <a href="vps.html" class="btn btn-primary w-100 mt-3">
+                <i class="fas fa-calculator me-2"></i>Calcular Custo VPS
+              </a>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4">
@@ -258,6 +275,48 @@
                 <li><i class="fas fa-check"></i> Soluções Eficientes</li>
                 <li><i class="fas fa-check"></i> Equipe Qualificada</li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hosting & VPS CTA Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, #0468af 0%, #1e008a 100%);">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h2 class="text-white fw-bold mb-3">Hospedagem Web Compartilhada</h2>
+            <p class="text-white opacity-75 mb-4">
+              Planos a partir de <strong>5.000 Kz/mês</strong> com SSD, SSL grátis e backup. 
+              Ideal para sites pessoais, blogs e pequenas empresas. 
+              Migração gratuita e suporte 24/7.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="hospedagem.html" class="btn btn-light btn-lg">
+                <i class="fas fa-server me-2"></i>Ver Planos de Hospedagem
+              </a>
+              <a href="https://wa.me/244923898014?text=Olá! Gostaria de mais informações sobre hospedagem web." 
+                 target="_blank" class="btn btn-outline-light btn-lg">
+                <i class="fab fa-whatsapp me-2"></i>Falar no WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h2 class="text-white fw-bold mb-3">Servidores VPS Linux</h2>
+            <p class="text-white opacity-75 mb-4">
+              VPS configurável a partir de <strong>8.500 Kz/mês</strong>. 
+              Escolha seus recursos (CPU, RAM, SSD) e sistema operacional. 
+              Acesso root completo e IP dedicado incluído.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="vps.html" class="btn btn-light btn-lg">
+                <i class="fas fa-cloud me-2"></i>Calcular Custo VPS
+              </a>
+              <a href="https://wa.me/244923898014?text=Olá! Gostaria de mais informações sobre VPS Linux." 
+                 target="_blank" class="btn btn-outline-light btn-lg">
+                <i class="fab fa-whatsapp me-2"></i>Falar no WhatsApp
+              </a>
             </div>
           </div>
         </div>
@@ -471,6 +530,8 @@
             <h4>Links Rápidos</h4>
             <ul class="footer-links">
               <li><a href="#home">Início</a></li>
+              <li><a href="hospedagem.html">Hospedagem Web</a></li>
+              <li><a href="vps.html">Servidores VPS</a></li>
               <li><a href="#services">Serviços</a></li>
               <li><a href="#products">Produtos</a></li>
               <li><a href="#about">Sobre</a></li>

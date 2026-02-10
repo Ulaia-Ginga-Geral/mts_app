@@ -699,8 +699,19 @@ section {
 .product-price {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--primary-color);
+    color: var(--success-color);
     margin-bottom: 1rem;
+}
+
+.btn-success {
+    color: var(--success-color);
+}
+
+.price-amount {
+     font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--success-color);
+   
 }
 
 .product-features {
@@ -742,8 +753,8 @@ section {
 
 .btn-product-outline {
     background: transparent;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
+    border: 2px solid var(--success-color);
+    color: var(--success-color);
 }
 
 .btn-product:hover {
